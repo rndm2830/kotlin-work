@@ -1,7 +1,7 @@
 // Task 5.1.2: main program
 fun main(args: Array<String>) {
     if (args.isEmpty()) {
-        println("Usage: please provide the number of sides for the die")
+        rollDie()
         return
     }
 
