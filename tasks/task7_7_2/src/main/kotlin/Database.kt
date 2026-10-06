@@ -11,6 +11,23 @@ fun createDatabase() = mutableMapOf<String,String>()
 fun Database.load(filename: String) {
     // Add code here to read names and numbers from the file
     // and insert them as keys and values into the map
+    // 确保读取前清空现有数据
+    this.clear()
+    val path = Path(filename)
+
+    // 如果文件存在，逐行读取 CSV 内容
+    if (path.exists()) {
+        path.forEachLine { line ->
+            if (line.isNotBlank()) {
+                val parts = line.split(",")
+                if (parts.size >= 2) {
+                    val name = parts[0].trim()
+                    val number = parts[1].trim()
+                    this[name] = number
+                }
+            }
+        }
+    }
 }
 
 fun Database.save(filename: String) {
