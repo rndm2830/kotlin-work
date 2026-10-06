@@ -33,4 +33,8 @@ fun Database.load(filename: String) {
 fun Database.save(filename: String) {
     // Add code here to write the keys and values of the map to
     // the file, separated by a comma, one pairing per line
+    val content = this.entries.joinToString("\n") { (name, number) ->
+        "$name,$number"
+    }
+    Path(filename).writeText(content)
 }
