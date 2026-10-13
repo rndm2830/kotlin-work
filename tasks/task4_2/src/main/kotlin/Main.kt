@@ -7,7 +7,7 @@ fun main() {
     println("(c) Seafood")
     println("(d) Hawaiian\n")
 
-    print("Choose your pizza (a-d): ")
+    println("Choose your pizza (a-d): ")
     val input = readln().lowercase()
 
     // 校验长度为 1 且首字符在字符区间 'a'..'d' 内
