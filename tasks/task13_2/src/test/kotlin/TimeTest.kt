@@ -7,22 +7,20 @@ import io.kotest.matchers.shouldBe
 
 @Suppress("unused")
 class TimeTest : FreeSpec({
+    val midnight = Time(0, 0, 0)
     "Hours stored correctly" {
-        val midnight = Time(0, 0, 0)
         val noon = Time(12, 0, 0)
         withClue("00:00:00") { midnight.hours shouldBe 0 }
         withClue("12:00:00") { noon.hours shouldBe 12 }
     }
 
     "Minutes stored correctly" {
-        val midnight = Time(0, 0, 0)
         val thirtyMin = Time(0, 30, 0)
         withClue("00:00:00") { midnight.minutes shouldBe 0 }
         withClue("00:30:00") { thirtyMin.minutes shouldBe 30 }
     }
 
     "Seconds stored correctly" {
-        val midnight = Time(0, 0, 0)
         val thirtySec = Time(0, 0, 30)
         withClue("00:00:00") { midnight.seconds shouldBe 0 }
         withClue("00:00:30") { thirtySec.seconds shouldBe 30 }
@@ -56,7 +54,6 @@ class TimeTest : FreeSpec({
     }
 
     "00:00:00 is zero seconds since midnight" {
-        val midnight = Time(0, 0, 0)
         midnight.secondsSinceMidnight shouldBe 0
     }
 
@@ -81,7 +78,6 @@ class TimeTest : FreeSpec({
     }
 
     "Hours formatted correctly as string" {
-        val midnight = Time(0, 0, 0)
         val fiveHours = Time(5, 0, 0)
         val noon = Time(12, 0, 0)
         withClue("midnight") { midnight.toString() shouldBe "00:00:00" }
