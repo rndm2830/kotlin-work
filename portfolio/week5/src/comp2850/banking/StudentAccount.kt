@@ -17,6 +17,6 @@ class StudentAccount(holder: String) : BankAccount(holder) {
     }
 
     fun withdrawalsAllowed(): Boolean {
-        return balance >= -overdraft
+        return balance > -overdraft
     }
 }
